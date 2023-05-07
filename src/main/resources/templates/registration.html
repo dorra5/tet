@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" th:href="@{~/assets/images/pg-favicon.png}" type="image/x-icon">
+	<title>Progress Group</title>
+	<link rel="stylesheet" href="#" th:href="@{~/assets/css/styles.min.css}" />
+</head>
+
+<body style="background-color:#0b3cc1">
+	<!--  Body Wrapper -->
+	<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+		data-sidebar-position="fixed" data-header-position="fixed">
+		<div class="position-relative overflow-hidden  min-vh-100 d-flex align-items-center justify-content-center">
+			<div class="d-flex align-items-center justify-content-center w-100">
+				<div class="row justify-content-center w-100">
+					<div class="col-md-8 col-lg-6 col-xxl-3">
+						<div class="card mb-0">
+							<div class="card-body">
+								<a href="#" th:href="@{/registration}" class="text-nowrap logo-img text-center d-block py-3 w-100">
+									<img th:src="@{~/assets/images/logo.png}" style="width:220px; height:80px;"
+										alt="Logo Progress Group">
+								</a>
+
+								<form th:action="@{/registration}" method="post" th:object="${user}">
+									<!-- success message -->
+									<div th:if="${param.success}">
+										<div class="alert alert-info">Vous avez réussi à vous inscrire à notre
+											application !</div>
+									</div>
+									<div class="mb-3">
+										<label for="firstName" class="form-label" style="color: #002060;">Nom</label>
+										<input type="text" class="form-control" id="firstName" th:field="*{firstName}"
+											required autofocus="autofocus" aria-describedby="textHelp">
+									</div>
+									<div class="mb-3">
+										<label for="lastName" class="form-label" style="color: #002060;">Prénom</label>
+										<input type="text" class="form-control" id="lastName" th:field="*{lastName}"
+											required autofocus="autofocus" aria-describedby="textHelp">
+									</div>
+									<div class="mb-3">
+										<label for="email" class="form-label" style="color: #002060;">Email</label>
+										<input type="email" class="form-control" id="email" th:field="*{email}" required
+											autofocus="autofocus" aria-describedby="emailHelp">
+									</div>
+									<div class="mb-4">
+										<label for="password" class="form-label" style="color: #002060;">Mot de
+											passe</label>
+										<input type="password" class="form-control" id="password" th:field="*{password}"
+											required autofocus="autofocus"/> 
+										
+									</div>
+									<button type="submit" name="register-submit" id="register-submit"
+										class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2"
+										style=" background-color: #002060; border-color:#002060;">S'inscrire</button>
+
+
+									<div class="d-flex align-items-center justify-content-center">
+										<p class="fs-4 mb-0 fw-bold">Vous avez déjà un compte ?</p>
+										<a class="text-primary fw-bold ms-2" th:href="@{/login}">Se connecter</a>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{~/assets/libs/jquery/dist/jquery.min.js}"></script>
+	<script th:src="@{~/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>
